@@ -1,9 +1,9 @@
 package com.vita.Controlleurs;
 
-import com.vita.devora.Entities.User;
-import com.vita.devora.Entities.WhoIndicator;
-import com.vita.devora.utils.SessionManager;
-import com.vita.devora.utils.WhoService;
+import com.vita.Entities.User;
+import com.vita.Entities.WhoIndicator;
+import com.vita.Utils.SessionManager;
+import com.vita.Utils.WhoService;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -147,14 +147,14 @@ public class PatientDashboardController {
 
     @FXML
     private void handleProfile(ActionEvent event) {
-        switchPage(event, "/com/vita/devora/PatientPassword.fxml");
+        switchPage(event, "/PatientPassword.fxml");
     }
 
     @FXML
     private void handleLogout() {
         try {
             SessionManager.clearSession();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/vita/devora/LoginTest.fxml"));
+            Parent loginRoot = FXMLLoader.load(getClass().getResource("/LoginTest.fxml"));
             Stage stage = (Stage) welcomeLabel.getScene().getWindow();
 
             // ← REBLOQUER pour le login
@@ -163,7 +163,7 @@ public class PatientDashboardController {
             stage.setHeight(720);
             stage.centerOnScreen();
 
-            stage.getScene().setRoot(root);
+            stage.getScene().setRoot(loginRoot);
         } catch (Exception e) {
             e.printStackTrace();
         }

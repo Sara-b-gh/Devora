@@ -1,10 +1,10 @@
 package com.vita.Controlleurs;
 
-import com.vita.devora.Entities.NewsArticle;
-import com.vita.devora.Entities.User;
-import com.vita.devora.Services.UserService;
-import com.vita.devora.utils.NewsService;
-import com.vita.devora.utils.SessionManager;
+import com.vita.Entities.NewsArticle;
+import com.vita.Entities.User;
+import com.vita.Services.UserService;
+import com.vita.Utils.NewsService;
+import com.vita.Utils.SessionManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -262,14 +265,14 @@ public class DoctorDashboardController {
 
     @FXML
     private void handleProfile(ActionEvent actionEvent) {
-        switchPage(actionEvent, "/com/vita/devora/DocteurPassword.fxml");
+        switchPage(actionEvent, "/DocteurPassword.fxml");
     }
 
     @FXML
     private void handleLogout() {
         try {
             SessionManager.clearSession();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/vita/devora/LoginTest.fxml"));
+            Parent loginRoot = FXMLLoader.load(getClass().getResource("/LoginTest.fxml"));
             Stage stage = (Stage) patientCardsPane.getScene().getWindow();
 
             // ← REBLOQUER pour le login
@@ -278,7 +281,7 @@ public class DoctorDashboardController {
             stage.setHeight(720);
             stage.centerOnScreen();
 
-            stage.getScene().setRoot(root);
+            stage.getScene().setRoot(loginRoot);
         } catch (Exception e) {
             e.printStackTrace();
         }

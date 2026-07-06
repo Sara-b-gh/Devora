@@ -28,7 +28,7 @@ public class LocalServer {
             }
 
             InputStream is = LocalServer.class
-                    .getResourceAsStream("/com/vita/devora/captcha.html");
+                    .getResourceAsStream("/captcha.html");
 
             if (is == null) {
                 System.out.println("❌ captcha.html NON TROUVÉ !");

@@ -1,6 +1,6 @@
 package com.vita.Utils;
 
-import com.vita.devora.Entities.WhoIndicator;
+import com.vita.Entities.WhoIndicator;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

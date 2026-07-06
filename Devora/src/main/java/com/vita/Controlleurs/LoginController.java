@@ -1,10 +1,10 @@
 package com.vita.Controlleurs;
 
-import com.vita.devora.Entities.User;
-import com.vita.devora.Services.UserService;
-import com.vita.devora.utils.EmailSender;
-import com.vita.devora.utils.JavaConnector;
-import com.vita.devora.utils.SessionManager;
+import com.vita.Entities.User;
+import com.vita.Services.UserService;
+import com.vita.Utils.EmailSender;
+import com.vita.Utils.JavaConnector;
+import com.vita.Utils.SessionManager;
 import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -136,15 +136,15 @@ public class LoginController {
             switch (user.getRole()) {
 
                 case ADMIN:
-                    openPage("/com/vita/devora/AdminDashbord.fxml");
+                    openPage("/AdminDashbord.fxml");
                     break;
 
                 case DOCTOR:
-                    openPage("/com/vita/devora/DoctorDashboard.fxml");
+                    openPage("/DoctorDashboard.fxml");
                     break;
 
                 case PATIENT:
-                    openPage("/com/vita/devora/PatientDashboard.fxml");
+                    openPage("/PatientDashboard.fxml");
                     break;
             }
 

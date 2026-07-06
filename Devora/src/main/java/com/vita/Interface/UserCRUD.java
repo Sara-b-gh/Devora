@@ -1,6 +1,6 @@
 package com.vita.Interface;
 
-import com.vita.devora.Entities.User;
+import com.vita.Entities.User;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,6 +1,7 @@
 package com.vita.Utils;
 
-import com.vita.devora.Entities.User;
+import com.vita.Entities.User;
+import com.vita.Entities.User;
 
 
 /**

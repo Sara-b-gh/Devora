@@ -1,6 +1,7 @@
 package com.vita.Utils;
 
-import com.vita.devora.Entities.NewsArticle;
+import com.vita.Entities.NewsArticle;
+import com.vita.Entities.NewsArticle;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

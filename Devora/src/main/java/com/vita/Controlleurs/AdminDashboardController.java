@@ -1,15 +1,20 @@
 package com.vita.Controlleurs;
 
-import com.vita.devora.Entities.User;
-import com.vita.devora.Services.UserService;
-import com.vita.devora.utils.SessionManager;
+import com.vita.Entities.User;
+import com.vita.Services.UserService;
+import com.vita.Utils.SessionManager;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.chart.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.Map;
@@ -236,19 +241,19 @@ public class AdminDashboardController {
     @FXML
     public void navEspaceDoctor(ActionEvent actionEvent) {
         // Ensure the path matches your project structure exactly
-        switchPage(actionEvent, "/com/vita/devora/AdminDocteur.fxml");
+        switchPage(actionEvent, "/AdminDocteur.fxml");
     }
 
     @FXML
     public void NavEspacePatient(ActionEvent actionEvent) {
-        switchPage(actionEvent, "/com/vita/devora/AdminPatient.fxml");
+        switchPage(actionEvent, "/AdminPatient.fxml");
     }
 
 //    @FXML
 //    public void TabBOARD(ActionEvent actionEvent) {
 //        // Fixed potential typo: changed "Dashbord" to "Dashboard"
 //        // Double-check your actual filename!
-//        switchPage(actionEvent, "/com/vita/devora/AdminDashboard.fxml");
+//        switchPage(actionEvent, "/AdminDashboard.fxml");
 //    }
 
     /**
@@ -259,23 +264,21 @@ public class AdminDashboardController {
         try {
             SessionManager.clearSession();
 
-            java.net.URL resource = getClass().getResource("/com/vita/devora/LoginTest.fxml");
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(resource);
-            javafx.scene.Parent root = loader.load();
+            Parent loginRoot = FXMLLoader.load(getClass().getResource("/LoginTest.fxml"));
 
-            javafx.scene.Node sourceNode = (javafx.scene.Node) actionEvent.getSource();
-            javafx.stage.Stage stage = (javafx.stage.Stage) sourceNode.getScene().getWindow();
+            Node sourceNode = (Node) actionEvent.getSource();
+            Stage stage = (Stage) sourceNode.getScene().getWindow();
             stage.setResizable(false);
             stage.setWidth(1280);
             stage.setHeight(720);
             stage.centerOnScreen();
 
-            stage.getScene().setRoot(root);
+            stage.getScene().setRoot(loginRoot);
 
         } catch (Exception e) {
             e.printStackTrace();
-            new javafx.scene.control.Alert(
-                    javafx.scene.control.Alert.AlertType.ERROR,
+            new Alert(
+                    Alert.AlertType.ERROR,
                     "Impossible de se déconnecter."
             ).showAndWait();
         }
